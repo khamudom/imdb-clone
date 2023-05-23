@@ -1,0 +1,78 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.background,
+.warmind,
+.smoke,
+.bray,
+.front,
+.destiny,
+.warmindText,
+.warmindLogo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.background {
+  position: absolute;
+  top: calc(50% + 334px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.warmind {
+  position: absolute;
+  top: calc(50% + 472px);
+  left: calc(50% - 5px);
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.smoke {
+  position: absolute;
+  top: calc(50% + 595px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+.bray {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 5px);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.front {
+  position: absolute;
+  top: calc(50% + 611px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+}
+
+.destiny {
+  top: calc(50% + 240px);
+  left: 50%;
+  width: 400px;
+  z-index: 4;
+}
+
+.warmindText {
+  top: calc(50% + 460px);
+  left: 50%;
+  width: 300px;
+  z-index: 6;
+}
+
+.warmindLogo {
+  top: calc(50% + 530px);
+  left: 50%;
+  width: 40px;
+  z-index: 6;
+}

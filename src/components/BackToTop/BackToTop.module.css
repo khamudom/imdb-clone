@@ -1,0 +1,11 @@
+.toTopBtn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: none;
+}
+
+.toTopBtn.visible {
+  display: block;
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 16px;
+  column-gap: 4px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.container:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
