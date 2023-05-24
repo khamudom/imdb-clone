@@ -1,6 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import styles from './Destiny.module.css';
+import { motion } from 'framer-motion';
+
+const variant = {
+  hidden: { opacity: 0, scale: 0.6 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 0.9,
+      ease: 'easeOut',
+      duration: 0.7,
+    },
+  },
+};
 
 const Destiny = () => {
   // const [offsetY, setOffsetY] = React.useState(0);
@@ -21,18 +35,30 @@ const Destiny = () => {
           alt="front"
           role="presentation"
         />
-        <img
+        <motion.div
+          variants={variant}
+          initial="hidden"
+          animate="show"
           className={styles.warmindText}
-          src="/assets/img/d2/d-warmindtext.png"
-          alt="warmind text"
-          role="presentation"
-        />
-        <img
+        >
+          <img
+            src="/assets/img/d2/d-warmindtext.png"
+            alt="warmind text"
+            role="presentation"
+          />
+        </motion.div>
+        <motion.div
+          variants={variant}
+          initial="hidden"
+          animate="show"
           className={styles.warmindLogo}
-          src="/assets/img/d2/d-warmindlogo.png"
-          alt="warmind logo"
-          role="presentation"
-        />
+        >
+          <img
+            src="/assets/img/d2/d-warmindlogo.png"
+            alt="warmind logo"
+            role="presentation"
+          />
+        </motion.div>
         <img
           className={styles.smoke}
           src="/assets/img/d2/d-smoke.png"
@@ -45,12 +71,18 @@ const Destiny = () => {
           alt="warmind"
           role="presentation"
         />
-        <img
+        <motion.div
+          initial={{ y: 410, opacity: 0, scale: 0.6 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeIn' }}
           className={styles.destiny}
-          src="/assets/img/d2/d-destiny.png"
-          alt="destiny"
-          role="presentation"
-        />
+        >
+          <img
+            src="/assets/img/d2/d-destiny.png"
+            alt="destiny"
+            role="presentation"
+          />
+        </motion.div>
         <img
           className={styles.bray}
           src="/assets/img/d2/d-bray.png"

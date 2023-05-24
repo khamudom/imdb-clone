@@ -2,13 +2,24 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import { BackToTop, Navbar } from '@/components';
+import { BackToTop, Dropdown, Navbar } from '@/components';
 import NinjaTurtle from '@/components/movies/NinjaTurtle/NinjaTurtle';
 import Destiny from '@/components/games/Destiny/Destiny';
 
+const adData = [
+  {
+    id: 1,
+    name: 'NinjaTurtle',
+  },
+  {
+    id: 2,
+    name: 'Destiny',
+  },
+];
+
 export default function Home() {
   const [expandHero, setExpandHero] = React.useState(false);
-  const [adComponent, setAdComponent] = React.useState<string>('');
+  const [adComponent, setAdComponent] = React.useState<string>('Destiny');
 
   const handleExpandHero = () => {
     setExpandHero(!expandHero);
@@ -25,7 +36,7 @@ export default function Home() {
       case 'Destiny':
         return <Destiny />;
       default:
-        return <NinjaTurtle />;
+        return;
     }
   };
 
@@ -50,18 +61,16 @@ export default function Home() {
               transition: 'height 0.5s ease-in-out',
             }}
           >
-            <div className={styles.ad}>
-              {/* {renderAdComponent()} */}
-              <NinjaTurtle />
-            </div>
+            <div className={styles.ad}>{renderAdComponent()}</div>
           </div>
         </div>
-        {/* <div className={styles.dropdown}>
-          <select onChange={handleAdComponentChange}>
-            <option value="NinjaTurtle">NinjaTurtle</option>
-            <option value="Destiny">Destiny</option>
-          </select>
-        </div> */}
+        <div className={styles.dropdown}>
+          <Dropdown
+            options={adData.map((ad) => ad.name)}
+            onChange={handleAdComponentChange}
+            defaultValue={adComponent}
+          />
+        </div>
         <BackToTop />
         <div className={styles.metaData}></div>
       </div>

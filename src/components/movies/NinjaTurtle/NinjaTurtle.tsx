@@ -3,7 +3,8 @@ import React from 'react';
 import styles from './NinjaTurtle.module.css';
 import YouTube from 'react-youtube';
 import { AiOutlineClose } from 'react-icons/ai';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { Smoke } from '@/components';
 
 interface NinjaTurtleProps {
   className?: string;
@@ -12,19 +13,36 @@ interface NinjaTurtleProps {
 const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
   const [videoPlayer, setVideoPlayer] = React.useState(true);
   const [movieTitle, setMovieTitle] = React.useState(false);
+  const [animateOpacity, setAnimateOpacity] = React.useState(false);
+
+  const controls = useAnimation();
 
   const closeBtnRef = React.useRef<HTMLButtonElement>(null);
+  const trailerBtnRef = React.useRef<HTMLDivElement>(null);
 
-  const handleVideo = () => {
+  const handleVideoClose = () => {
     setVideoPlayer(false);
     setMovieTitle(true);
+    setAnimateOpacity(true);
+    controls.start({ opacity: 0 });
+    trailerBtnRef.current?.style.setProperty('display', 'flex');
     closeBtnRef.current?.style.setProperty('display', 'none');
+  };
+
+  const handleVideoPlay = () => {
+    setVideoPlayer(true);
+    setMovieTitle(false);
+    setAnimateOpacity(false);
+    controls.start({ opacity: 0 });
+    trailerBtnRef.current?.style.setProperty('display', 'flex');
+    closeBtnRef.current?.style.setProperty('display', 'flex');
   };
 
   const container = {
     show: {
       transition: {
         staggerChildren: 0.1,
+        delay: 5,
       },
     },
   };
@@ -56,7 +74,7 @@ const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
           <button
             type="button"
             title="close video"
-            onClick={handleVideo}
+            onClick={handleVideoClose}
             className={styles.closeBtn}
             ref={closeBtnRef}
           >
@@ -69,27 +87,13 @@ const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
                 className={styles.videoWrapper}
                 initial={{ y: 0, opacity: 1 }}
                 exit={{ y: 400, opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5, ease: 'anticipate' }}
               >
                 <YouTube className={styles.video} videoId="Dh2u6Cw2clE" />
               </motion.div>
             )}
           </AnimatePresence>
         </div>
-        {/* {movieTitle && (
-          <motion.div
-            className={styles.title}
-            initial={{ y: 360, x: -360, opacity: 1 }}
-            animate={{ y: 0, x: -360, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.3, ease: 'easeInOut' }}
-          >
-            <img
-              src="/assets/img/turtle/tmnt-title.png"
-              alt="title"
-              role="presentation"
-            />
-          </motion.div>
-        )} */}
 
         {movieTitle && (
           <motion.div
@@ -128,13 +132,25 @@ const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
             </motion.div>
           </motion.div>
         )}
-
+        <motion.div
+          ref={trailerBtnRef}
+          className={styles.trailerBtn}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: animateOpacity ? 1 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <button onClick={handleVideoPlay}>trailer</button>
+        </motion.div>
         <img
           className={styles.street}
           src="/assets/img/turtle/tmnt-street.png"
           alt="street"
           role="presentation"
         />
+        <div className={styles.smokeContainer}>
+          <Smoke />
+        </div>
         <img
           className={styles.turtles}
           src="/assets/img/turtle/tmnt-turtles.png"

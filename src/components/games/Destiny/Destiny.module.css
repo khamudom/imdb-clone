@@ -57,22 +57,31 @@
 }
 
 .destiny {
-  top: calc(50% + 240px);
-  left: 50%;
-  width: 650px;
+  top: calc(50% + 180px);
+  left: calc(50% - 330px);
   z-index: 4;
 }
 
+.destiny img {
+  width: 650px;
+}
+
 .warmindText {
-  top: calc(50% + 460px);
-  left: 50%;
-  width: 300px;
+  top: calc(50% + 426px);
+  left: calc(50% - 130px);
   z-index: 6;
 }
 
+.warmindText img {
+  width: 250px;
+}
+
 .warmindLogo {
-  top: calc(50% + 530px);
-  left: 50%;
-  width: 40px;
+  top: calc(50% + 510px);
+  left: calc(50% - 20px);
   z-index: 6;
+}
+
+.warmindLogo img {
+  width: 40px;
 }

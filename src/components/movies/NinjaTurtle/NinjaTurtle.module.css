@@ -7,7 +7,9 @@
 .city,
 .turtle,
 .title,
-.street {
+.street,
+.trailerBtn,
+.smokeContainer {
   transform: translate(-50%, -50%);
 }
 
@@ -20,9 +22,9 @@
 
 .title {
   position: absolute;
-  top: calc(50% + 200px);
+  top: calc(50% + 180px);
   left: calc(50% + 0px);
-  z-index: 2;
+  z-index: 3;
   width: auto;
   display: flex;
   flex-direction: column;
@@ -32,8 +34,8 @@
 .videoContainer {
   position: absolute;
   top: calc(50% + 60px);
-  left: calc(50% - 380px);
-  z-index: 2;
+  left: calc(50% - 360px);
+  z-index: 4;
 }
 
 .videoWrapper {
@@ -53,14 +55,15 @@
   position: absolute;
   top: calc(50% + 650px);
   left: 50%;
-  z-index: 3;
+  z-index: 2;
 }
 
 .turtles {
   position: absolute;
   top: calc(50% + 400px);
   left: calc(50% - 310px);
-  z-index: 4;
+  z-index: 10;
+  pointer-events: none;
 }
 
 .closeBtn {
@@ -82,4 +85,38 @@
   border-color: #f6c903;
   cursor: pointer;
   color: #f6c903;
+}
+
+.trailerBtn {
+  position: absolute;
+  top: calc(50% + 380px);
+  left: calc(50% + 0px);
+  z-index: 3;
+}
+
+.trailerBtn button {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 12px;
+  background-color: green;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  text-transform: uppercase;
+}
+
+.trailerBtn button:hover {
+  cursor: pointer;
+  border-color: #f6c903;
+  color: #f6c903;
+  background-color: #000;
+}
+
+.smokeContainer {
+  position: absolute;
+  top: calc(50% + 520px);
+  left: calc(50% - 290px);
+  z-index: 3;
 }
