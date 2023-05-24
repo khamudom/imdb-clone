@@ -18,7 +18,7 @@
 
 .background {
   position: absolute;
-  top: calc(50% + 334px);
+  top: calc(50% + 380px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -50,7 +50,7 @@
 
 .front {
   position: absolute;
-  top: calc(50% + 611px);
+  top: calc(50% + 650px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 8;
@@ -59,7 +59,7 @@
 .destiny {
   top: calc(50% + 240px);
   left: 50%;
-  width: 400px;
+  width: 650px;
   z-index: 4;
 }
 
