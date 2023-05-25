@@ -34,8 +34,8 @@
 
 .smoke {
   position: absolute;
-  top: calc(50% + 595px);
-  left: 50%;
+  top: calc(50% + 530px);
+  left: calc(50% - 300px);
   transform: translate(-50%, -50%);
   z-index: 6;
 }
@@ -43,15 +43,15 @@
 .bray {
   position: absolute;
   top: 0;
-  left: calc(50% - 5px);
+  left: calc(50% - 245px);
   transform: translateX(-50%);
   z-index: 3;
 }
 
 .front {
   position: absolute;
-  top: calc(50% + 650px);
-  left: 50%;
+  top: calc(50% + 550px);
+  left: calc(50% - 730px);
   transform: translate(-50%, -50%);
   z-index: 8;
 }

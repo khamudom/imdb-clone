@@ -19,7 +19,7 @@ const adData = [
 
 export default function Home() {
   const [expandHero, setExpandHero] = React.useState(false);
-  const [adComponent, setAdComponent] = React.useState<string>('Destiny');
+  const [adComponent, setAdComponent] = React.useState<string>('NinjaTurtle');
 
   const handleExpandHero = () => {
     setExpandHero(!expandHero);

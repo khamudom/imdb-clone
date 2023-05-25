@@ -138,7 +138,7 @@ const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: animateOpacity ? 1 : 0 }}
           exit={{ opacity: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 0.8, duration: 0.7 }}
         >
           <button onClick={handleVideoPlay}>trailer</button>
         </motion.div>

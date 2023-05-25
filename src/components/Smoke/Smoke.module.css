@@ -15,7 +15,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  filter: blur(8px);
+  filter: blur(5px);
 }
 
 .smoke:nth-child(even) {
@@ -28,6 +28,7 @@
 
 .smoke:nth-child(9) {
   animation: none;
+  opacity: 0.4;
 }
 
 .smoke:nth-child(9) img {
@@ -38,7 +39,7 @@
 @keyframes animateEven {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.8;
+    opacity: 0.4;
     filter: blur(5px);
   }
   100% {
@@ -51,7 +52,7 @@
 @keyframes animateOdd {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.8;
+    opacity: 0.4;
     filter: blur(5px);
   }
   100% {

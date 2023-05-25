@@ -17,19 +17,25 @@ const variant = {
 };
 
 const Destiny = () => {
-  // const [offsetY, setOffsetY] = React.useState(0);
+  const [position, setPosition] = React.useState({ mouseX: 0, mouseY: 0 });
 
-  // React.useEffect(() => {
-  //   const handleScroll = () => setOffsetY(window.pageYOffset);
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    // let xValue = 0;
+    // let yValue = 0;
+    // xValue = event.clientX - window.innerWidth / 2;
+    // yValue = event.clientY - window.innerHeight / 2;
+    const { clientX, clientY } = event;
 
-  //   window.addEventListener('scroll', handleScroll);
+    setPosition({ mouseX: clientX, mouseY: clientY });
+  };
 
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} onMouseMove={handleMouseMove}>
         <img
+          style={{
+            transform: `translate(-${(position.mouseX / 50) * 0.3}px`,
+          }}
           className={styles.front}
           src="/assets/img/d2/d-front.png"
           alt="front"
@@ -42,6 +48,11 @@ const Destiny = () => {
           className={styles.warmindText}
         >
           <img
+            style={{
+              transform: `translate(-${(position.mouseX / 100) * 0.4}px, -${
+                (position.mouseY / 60) * 0.4
+              }px)`,
+            }}
             src="/assets/img/d2/d-warmindtext.png"
             alt="warmind text"
             role="presentation"
@@ -54,12 +65,22 @@ const Destiny = () => {
           className={styles.warmindLogo}
         >
           <img
+            style={{
+              transform: `translate(-${(position.mouseX / 100) * 0.3}px, -${
+                (position.mouseY / 60) * 0.3
+              }px)`,
+            }}
             src="/assets/img/d2/d-warmindlogo.png"
             alt="warmind logo"
             role="presentation"
           />
         </motion.div>
         <img
+          style={{
+            transform: `translate(-${(position.mouseX / 50) * 0.9}px, -${
+              (position.mouseY / 50) * 0.6
+            }px)`,
+          }}
           className={styles.smoke}
           src="/assets/img/d2/d-smoke.png"
           alt="smoke"
@@ -78,12 +99,20 @@ const Destiny = () => {
           className={styles.destiny}
         >
           <img
+            style={{
+              transform: `translate(-${(position.mouseX / 90) * 0.2}px, -${
+                (position.mouseY / 90) * 0.2
+              }px)`,
+            }}
             src="/assets/img/d2/d-destiny.png"
             alt="destiny"
             role="presentation"
           />
         </motion.div>
         <img
+          style={{
+            transform: `translate(-${(position.mouseX / 50) * 0.3}px`,
+          }}
           className={styles.bray}
           src="/assets/img/d2/d-bray.png"
           alt="bray"
