@@ -1,26 +1,32 @@
 import React from 'react';
-import styles from './Dropdown.module.css';
 
 interface DropdownProps {
-  value?: string;
   options: string[];
-  defaultValue?: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onSelect?: (selectedOption: string) => void;
 }
 
-interface OptionValue {
-  optionValue: string;
-}
+const Dropdown: React.FC<DropdownProps> = ({ options, onSelect }) => {
+  const [selectedOption, setSelectedOption] = React.useState<string>('');
 
-const Dropdown: React.FC<DropdownProps> = ({
-  value,
-  options,
-  defaultValue,
-  onChange,
-}) => {
+  React.useEffect(() => {
+    const storedOption = localStorage.getItem('selectedOption');
+    if (storedOption) {
+      setSelectedOption(JSON.parse(storedOption));
+    }
+  }, [options, onSelect]);
+
+  const handleOnSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const optionValue = event.target.value;
+    setSelectedOption(optionValue);
+    localStorage.setItem('selectedOption', JSON.stringify(optionValue));
+    if (onSelect) {
+      onSelect(optionValue);
+    }
+  };
+
   return (
     <>
-      <select value={value} onChange={onChange} defaultValue={defaultValue}>
+      <select value={selectedOption} onChange={handleOnSelect}>
         {options.map((option) => {
           return (
             <option key={option} value={option}>

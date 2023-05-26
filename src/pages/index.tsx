@@ -5,29 +5,15 @@ import styles from '@/styles/Home.module.css';
 import { BackToTop, Dropdown, Navbar } from '@/components';
 import NinjaTurtle from '@/components/movies/NinjaTurtle/NinjaTurtle';
 import Destiny from '@/components/games/Destiny/Destiny';
-
-const adData = [
-  {
-    id: 1,
-    name: 'NinjaTurtle',
-  },
-  {
-    id: 2,
-    name: 'Destiny',
-  },
-];
+import { adData } from './data/data';
 
 export default function Home() {
   const [expandHero, setExpandHero] = React.useState(false);
-  const [adComponent, setAdComponent] = React.useState<string>('NinjaTurtle');
+  const [adComponent, setAdComponent] = React.useState<string>('');
 
-  const handleExpandHero = () => {
-    setExpandHero(!expandHero);
-  };
-
-  const handleAdComponentChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setAdComponent(e.target.value);
-  };
+  // const handleExpandHero = () => {
+  //   setExpandHero(!expandHero);
+  // };
 
   const renderAdComponent = () => {
     switch (adComponent) {
@@ -36,9 +22,28 @@ export default function Home() {
       case 'Destiny':
         return <Destiny />;
       default:
-        return;
+        return <NinjaTurtle />;
     }
   };
+
+  const handleAdComponentChange = (selectedOption: string) => {
+    setAdComponent(selectedOption);
+  };
+
+  // Get the stored ad component from localStorage
+  React.useEffect(() => {
+    const storedOption = localStorage.getItem('selectedOption');
+    if (storedOption) {
+      setAdComponent(JSON.parse(storedOption));
+    }
+  }, [adComponent]);
+
+  // Set the stored ad component to localStorage
+  React.useEffect(() => {
+    if (adComponent) {
+      localStorage.setItem('selectedOption', JSON.stringify(adComponent));
+    }
+  }, [adComponent]);
 
   return (
     <>
@@ -51,8 +56,8 @@ export default function Home() {
       <div className={styles.container}>
         <Navbar></Navbar>
         <div className={styles.adContainer}>
-          {/* <button className={styles.expandBtn} onClick={handleExpand}>
-            {expand ? 'Expand' : 'Collapse'}
+          {/* <button className={styles.expandBtn} onClick={handleExpandHero}>
+            {expandHero ? 'Expand' : 'Collapse'}
           </button> */}
           <div
             className={styles.adSpacer}
@@ -67,8 +72,7 @@ export default function Home() {
         <div className={styles.dropdown}>
           <Dropdown
             options={adData.map((ad) => ad.name)}
-            onChange={handleAdComponentChange}
-            defaultValue={adComponent}
+            onSelect={handleAdComponentChange}
           />
         </div>
         <BackToTop />
