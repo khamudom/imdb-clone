@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css';
 import { BackToTop, Dropdown, Navbar } from '@/components';
 import NinjaTurtle from '@/components/movies/NinjaTurtle/NinjaTurtle';
 import Destiny from '@/components/games/Destiny/Destiny';
-import { adData } from './data/data';
+import { adData } from '../data/data';
 
 export default function Home() {
   const [expandHero, setExpandHero] = React.useState(false);
