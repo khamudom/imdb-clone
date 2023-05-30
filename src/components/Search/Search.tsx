@@ -28,18 +28,18 @@ const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
     };
   }, []);
 
-  const searchMovies = async () => {
-    try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`
-      );
-      const data = await response.json();
-      setMovieDetails(data.results);
-      onSearchResults(data.results);
-      // console.log(data.results);
-    } catch (error) {
-      console.error(error);
-    }
+  const fetchMovieSearch = async () => {
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieDetails(data.results);
+        onSearchResults(data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +48,7 @@ const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchMovies();
+    fetchMovieSearch();
     setShowResults(true);
   };
 
@@ -85,7 +85,9 @@ const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
                     />
                     <div className={styles.content}>
                       <h4>{movieDetail.title}</h4>
-                      <p>{movieDetail.release_date}</p>
+                      <p className={styles.releaseDate}>
+                        {movieDetail.release_date}
+                      </p>
                     </div>
                   </div>
                 </a>

@@ -12,15 +12,18 @@ const DetailsPage: React.FC = () => {
   );
 
   const fetchMovieDetails = async () => {
-    try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-      );
-      const data = await response.json();
-      setMovieDetails(data);
-    } catch (error) {
-      console.error(error);
-    }
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        {
+          setMovieDetails(data);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   React.useEffect(() => {

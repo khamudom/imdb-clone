@@ -89,9 +89,9 @@ const Destiny = () => {
           role="presentation"
         />
         <motion.div
-          initial={{ y: 410, opacity: 0, scale: 0.6 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: 'easeIn' }}
+          initial={{ y: 410, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
           className={styles.destiny}
         >
           <img
