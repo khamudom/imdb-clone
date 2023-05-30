@@ -1,9 +1,9 @@
 import React from 'react';
 
-interface DropdownProps {
+type DropdownProps = {
   options: string[];
   onSelect?: (selectedOption: string) => void;
-}
+};
 
 const Dropdown: React.FC<DropdownProps> = ({ options, onSelect }) => {
   const [selectedOption, setSelectedOption] = React.useState<string>('');

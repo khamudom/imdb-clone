@@ -6,9 +6,9 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { Smoke } from '@/components';
 
-interface NinjaTurtleProps {
+type NinjaTurtleProps = {
   className?: string;
-}
+};
 
 const NinjaTurtle: React.FC<NinjaTurtleProps> = ({ className }) => {
   const [videoPlayer, setVideoPlayer] = React.useState(true);

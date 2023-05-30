@@ -4,9 +4,9 @@ import styles from './Search.module.css';
 import { MovieDetail } from '@/types/MovieType';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-interface SearchProps {
-  onSearchResults: (results: any) => void;
-}
+type SearchProps = {
+  onSearchResults: (results: MovieDetail[]) => void;
+};
 
 const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
   const [query, setQuery] = React.useState('');
@@ -36,7 +36,7 @@ const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
       const data = await response.json();
       setMovieDetails(data.results);
       onSearchResults(data.results);
-      console.log(data.results);
+      // console.log(data.results);
     } catch (error) {
       console.error(error);
     }

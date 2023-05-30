@@ -20,10 +20,6 @@ const Destiny = () => {
   const [position, setPosition] = React.useState({ mouseX: 0, mouseY: 0 });
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    // let xValue = 0;
-    // let yValue = 0;
-    // xValue = event.clientX - window.innerWidth / 2;
-    // yValue = event.clientY - window.innerHeight / 2;
     const { clientX, clientY } = event;
 
     setPosition({ mouseX: clientX, mouseY: clientY });

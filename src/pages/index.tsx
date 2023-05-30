@@ -3,14 +3,15 @@ import React from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import { BackToTop, Dropdown, Navbar } from '@/components';
-import NinjaTurtle from '@/components/movies/NinjaTurtle/NinjaTurtle';
-import Destiny from '@/components/games/Destiny/Destiny';
+import NinjaTurtle from '@/components/Ads/movies/NinjaTurtle/NinjaTurtle';
+import Destiny from '@/components/Ads/games/Destiny/Destiny';
 import { adData } from '../data/data';
+import { MovieDetail } from '@/types/MovieType';
 
 export default function Home() {
-  const [expandHero, setExpandHero] = React.useState(false);
+  // const [expandHero, setExpandHero] = React.useState(false);
   const [adComponent, setAdComponent] = React.useState<string>('');
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchResults, setSearchResults] = React.useState<MovieDetail[]>([]);
 
   // const handleExpandHero = () => {
   //   setExpandHero(!expandHero);
@@ -31,7 +32,7 @@ export default function Home() {
     setAdComponent(selectedOption);
   };
 
-  const handleSearchResult = (results: never[]) => {
+  const handleSearchResult = (results: MovieDetail[]) => {
     setSearchResults(results);
   };
 
@@ -66,10 +67,10 @@ export default function Home() {
           </button> */}
           <div
             className={styles.adSpacer}
-            style={{
-              height: `${expandHero ? '227' : '668'}px`,
-              transition: 'height 0.5s ease-in-out',
-            }}
+            // style={{
+            //   height: `${expandHero ? '227' : '668'}px`,
+            //   transition: 'height 0.5s ease-in-out',
+            // }}
           >
             <div className={styles.ad}>{renderAdComponent()}</div>
           </div>

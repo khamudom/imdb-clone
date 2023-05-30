@@ -6,10 +6,11 @@ import { MdOutlineBookmarkAdd } from 'react-icons/md';
 import { HiUserCircle } from 'react-icons/hi';
 import Link from 'next/link';
 import { Button, Search } from '@/components';
+import { MovieDetail } from '@/types/MovieType';
 
-interface NavbarProps {
-  onSearchResult: (results: never[]) => void;
-}
+type NavbarProps = {
+  onSearchResult: (results: MovieDetail[]) => void;
+};
 
 const Navbar: React.FC<NavbarProps> = ({ onSearchResult }) => {
   return (
