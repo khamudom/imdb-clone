@@ -10,6 +10,7 @@ import { adData } from '../data/data';
 export default function Home() {
   const [expandHero, setExpandHero] = React.useState(false);
   const [adComponent, setAdComponent] = React.useState<string>('');
+  const [searchResults, setSearchResults] = React.useState([]);
 
   // const handleExpandHero = () => {
   //   setExpandHero(!expandHero);
@@ -28,6 +29,10 @@ export default function Home() {
 
   const handleAdComponentChange = (selectedOption: string) => {
     setAdComponent(selectedOption);
+  };
+
+  const handleSearchResult = (results: never[]) => {
+    setSearchResults(results);
   };
 
   // Get the stored ad component from localStorage
@@ -54,7 +59,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <Navbar></Navbar>
+        <Navbar onSearchResult={handleSearchResult}></Navbar>
         <div className={styles.adContainer}>
           {/* <button className={styles.expandBtn} onClick={handleExpandHero}>
             {expandHero ? 'Expand' : 'Collapse'}

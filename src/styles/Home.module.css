@@ -35,7 +35,7 @@
   background-color: #1f1f1e;
   height: 1000px;
   margin: 0 auto;
-  z-index: 100;
+  z-index: 20;
   position: relative;
   display: flex;
 }

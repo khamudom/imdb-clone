@@ -1,15 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import styles from './Navbar.module.css';
-import { FaBars } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { AiOutlineSearch } from 'react-icons/ai';
 import { MdOutlineBookmarkAdd } from 'react-icons/md';
 import { HiUserCircle } from 'react-icons/hi';
 import Link from 'next/link';
-import { Button } from '@/components';
+import { Button, Search } from '@/components';
 
-const Navbar = () => {
+interface NavbarProps {
+  onSearchResult: (results: never[]) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onSearchResult }) => {
   return (
     <nav className={styles.container}>
       <div className={styles.wrapper}>
@@ -18,20 +20,12 @@ const Navbar = () => {
             <img src="/assets/img/imdblogo.png" alt="imdb logo" />
           </Link>
 
-          <Button className={styles.menu}>
+          <Button className={styles.menu} title="Menu">
             <RxHamburgerMenu className={styles.icon}></RxHamburgerMenu>
             Menu
           </Button>
           <div className={styles.searchContainer}>
-            <form className={styles.form}>
-              <button className={styles.formStart}>All</button>
-              <div className={styles.inputWrapper}>
-                <input type={styles.search} />
-              </div>
-              <button className={styles.formEnd}>
-                <AiOutlineSearch className={styles.icon} />
-              </button>
-            </form>
+            <Search onSearchResults={onSearchResult} />
           </div>
         </div>
 

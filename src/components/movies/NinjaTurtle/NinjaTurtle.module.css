@@ -42,7 +42,7 @@
   position: relative;
   width: 740px;
   height: 386px;
-  background-color: #000;
+  background-color: #000000;
   border: 2px solid green;
 }
 
@@ -70,7 +70,7 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  border: 2px solid #fff;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -78,7 +78,8 @@
   align-items: center;
   justify-content: center;
   z-index: 3;
-  background-color: #000;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .closeBtn:hover {
@@ -100,10 +101,10 @@
   height: 32px;
   padding: 12px;
   background-color: green;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   border-radius: 4px;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff;
   text-transform: uppercase;
 }
 
@@ -111,7 +112,7 @@
   cursor: pointer;
   border-color: #f6c903;
   color: #f6c903;
-  background-color: #000;
+  background-color: #000000;
 }
 
 .smokeContainer {
