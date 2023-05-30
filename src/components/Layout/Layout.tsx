@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import { MovieDetail } from '@/types/MovieType';
+import BackToTop from '../BackToTop/BackToTop';
 
 type LayoutProps = {
   children: React.ReactNode;

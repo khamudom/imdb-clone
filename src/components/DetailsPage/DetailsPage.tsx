@@ -2,7 +2,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { MovieDetail } from '@/types/MovieType';
-import BackToTop from '../BackToTop/BackToTop';
 import styles from './DetailsPage.module.css';
 
 const DetailsPage: React.FC = () => {
@@ -41,7 +40,6 @@ const DetailsPage: React.FC = () => {
           <div className={styles.ad}></div>
         </div>
       </div>
-      <BackToTop />
       <div className={styles.metaDataContainer}>
         <section className={styles.metaData}>
           <div className={styles.poster}>

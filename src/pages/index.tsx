@@ -60,7 +60,6 @@ export default function Home() {
             onSelect={handleAdComponentChange}
           />
         </div>
-        <BackToTop />
         <div className={styles.metaData}></div>
       </div>
     </>
