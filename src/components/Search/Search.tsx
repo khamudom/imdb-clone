@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import styles from './Search.module.css';
 import { MovieDetail } from '@/types/MovieType';
 import { AiOutlineSearch } from 'react-icons/ai';
+import Image from 'next/image';
 
 type SearchProps = {
   onSearchResults: (results: MovieDetail[]) => void;
@@ -72,7 +72,9 @@ const Search: React.FC<SearchProps> = ({ onSearchResults }) => {
               <li key={movieDetail.id}>
                 <a href={`/movies/${movieDetail.id}`}>
                   <div className={styles.contentWrapper}>
-                    <img
+                    <Image
+                      width={48}
+                      height={72}
                       className={styles.poster}
                       src={
                         movieDetail.poster_path

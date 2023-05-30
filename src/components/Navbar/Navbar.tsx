@@ -20,7 +20,6 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchResult }) => {
           <Link href="/" className={styles.logo}>
             <img src="/assets/img/imdblogo.png" alt="imdb logo" />
           </Link>
-
           <Button className={styles.menu} title="Menu">
             <RxHamburgerMenu className={styles.icon}></RxHamburgerMenu>
             Menu
@@ -29,7 +28,6 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchResult }) => {
             <Search onSearchResults={onSearchResult} />
           </div>
         </div>
-
         <div className={styles.navRight}>
           <Button>
             <a href="#">IMDbPro</a>
