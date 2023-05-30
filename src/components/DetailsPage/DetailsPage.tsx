@@ -2,6 +2,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { MovieDetail } from '@/types/MovieType';
+import BackToTop from '../BackToTop/BackToTop';
+import styles from './DetailsPage.module.css';
 
 const DetailsPage: React.FC = () => {
   const router = useRouter();
@@ -33,14 +35,31 @@ const DetailsPage: React.FC = () => {
   }
 
   return (
-    <div>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-        alt={movieDetails?.title}
-      />
-      <h1>{movieDetails.title}</h1>
-      <p>{movieDetails.overview}</p>
-      <p>Release Date: {movieDetails.release_date}</p>
+    <div className={styles.container}>
+      <div className={styles.adContainer}>
+        <div className={styles.adSpacer}>
+          <div className={styles.ad}></div>
+        </div>
+      </div>
+      <BackToTop />
+      <div className={styles.metaDataContainer}>
+        <section className={styles.metaData}>
+          <div className={styles.poster}>
+            <img
+              className={styles.image}
+              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+              alt={movieDetails?.title}
+            />
+          </div>
+          <div className={styles.titleWrapper}>
+            <h1 className={styles.title}>{movieDetails.title}</h1>
+            <p className={styles.releaseDate}>{movieDetails.release_date}</p>
+            <div className={styles.overview}>
+              <p>{movieDetails.overview}</p>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

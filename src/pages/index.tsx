@@ -2,20 +2,13 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import { BackToTop, Dropdown, Navbar } from '@/components';
+import { BackToTop, Dropdown } from '@/components';
 import NinjaTurtle from '@/components/Ads/movies/NinjaTurtle/NinjaTurtle';
 import Destiny from '@/components/Ads/games/Destiny/Destiny';
 import { adData } from '../data/data';
-import { MovieDetail } from '@/types/MovieType';
 
 export default function Home() {
-  // const [expandHero, setExpandHero] = React.useState(false);
   const [adComponent, setAdComponent] = React.useState<string>('');
-  const [searchResults, setSearchResults] = React.useState<MovieDetail[]>([]);
-
-  // const handleExpandHero = () => {
-  //   setExpandHero(!expandHero);
-  // };
 
   const renderAdComponent = () => {
     switch (adComponent) {
@@ -30,10 +23,6 @@ export default function Home() {
 
   const handleAdComponentChange = (selectedOption: string) => {
     setAdComponent(selectedOption);
-  };
-
-  const handleSearchResult = (results: MovieDetail[]) => {
-    setSearchResults(results);
   };
 
   // Get the stored ad component from localStorage
@@ -60,18 +49,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <Navbar onSearchResult={handleSearchResult}></Navbar>
         <div className={styles.adContainer}>
-          {/* <button className={styles.expandBtn} onClick={handleExpandHero}>
-            {expandHero ? 'Expand' : 'Collapse'}
-          </button> */}
-          <div
-            className={styles.adSpacer}
-            // style={{
-            //   height: `${expandHero ? '227' : '668'}px`,
-            //   transition: 'height 0.5s ease-in-out',
-            // }}
-          >
+          <div className={styles.adSpacer}>
             <div className={styles.ad}>{renderAdComponent()}</div>
           </div>
         </div>
