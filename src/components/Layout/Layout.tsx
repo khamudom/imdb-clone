@@ -20,6 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Navbar onSearchResult={handleSearchResult}></Navbar>
       </header>
       <main>{children}</main>
+      <BackToTop />
     </div>
   );
 };

@@ -8,7 +8,7 @@ const BackToTop = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 200) {
         setShow(true);
       } else {
         setShow(false);
